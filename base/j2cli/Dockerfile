@@ -17,18 +17,8 @@ USER mcuser
 
 # download the server jar file
 RUN mkdir -p /home/mcuser/bin/minecraft && cd /home/mcuser/bin/minecraft
-RUN wget -O /home/mcuser/bin/minecraft/server.jar https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
-
-COPY --chown=mcuser:mcuser /templates /templates
-COPY --chown=mcuser:mcuser /entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 # switch to the correct working directory
 WORKDIR /home/mcuser/bin/minecraft
 
 # generate the EULA file
 RUN echo "eula=true" > eula.txt
-
-# set minecraft entrypoint
-CMD exec java ${JAVA_OPTS} -jar /home/mcuser/bin/minecraft/server.jar
-ENTRYPOINT [ "/entrypoint.sh" ]
