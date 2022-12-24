@@ -1,27 +1,27 @@
 # Minecraft server properties
 # written 23-Dec-2022, Ben Melikant
-# j2 template
+# Written via j2 template
 enable-jmx-monitoring=false
 rcon.port=25575
-level-seed={{ env['mc_level_seed'] }}
+level-seed={{ mc_level_seed | default('') }}
 gamemode=survival
-enable-command-block={{ env['mc_enable_cmd_block'] | false }}
+enable-command-block={{ mc_enable_cmd_block | default('false') }}
 enable-query=false
 generator-settings={}
 enforce-secure-profile=true
-level-name={{ env['mc_world_name'] | Minecraft-World }}
-motd={{ env['mc_motd'] | Welcome to Minecraft! }}
-query.port={{ env['mc_server_port' | 25565 }}
-pvp={{ env['mc_pvp_active'] | true }}
+level-name={{ mc_world_name | default('Minecraft-World') }}
+motd={{ mc_motd | default('Welcome to Minecraft!') }}
+query.port={{ mc_server_port | default('25565') }}
+pvp={{ mc_pvp_active | default('true') }}
 generate-structures=true
 max-chained-neighbor-updates=1000000
-difficulty={{ env['mc_difficulty'] | easy }}
+difficulty={{ mc_difficulty | default('easy') }}
 network-compression-threshold=256
 max-tick-time=60000
 require-resource-pack=false
 use-native-transport=true
 max-players=20
-online-mode={{ env['mc_online_mode'] | true }}
+online-mode={{ mc_online_mode | default('true') }}
 enable-status=true
 allow-flight=false
 initial-disabled-packs=
@@ -30,7 +30,7 @@ view-distance=10
 server-ip=
 resource-pack-prompt=
 allow-nether=true
-server-port={{ env['mc_server_port' | 25565 }}
+server-port={{ mc_server_port | default('25565') }}
 enable-rcon=false
 sync-chunk-writes=true
 op-permission-level=4
@@ -39,7 +39,7 @@ hide-online-players=false
 resource-pack=
 entity-broadcast-range-percentage=100
 simulation-distance=10
-rcon.password={{ env['mc_password'] }}
+rcon.password={{ mc_password | default('') }}
 player-idle-timeout=0
 force-gamemode=false
 rate-limit=0
