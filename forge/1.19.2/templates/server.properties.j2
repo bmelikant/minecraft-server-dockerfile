@@ -4,7 +4,7 @@
 enable-jmx-monitoring=false
 rcon.port=25575
 level-seed={{ mc_level_seed | default('') }}
-gamemode=survival
+gamemode={{ mc_game_mode | default('survival') }}
 enable-command-block={{ mc_enable_cmd_block | default('false') }}
 enable-query=false
 generator-settings={}
