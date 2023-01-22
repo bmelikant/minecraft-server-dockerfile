@@ -3,7 +3,7 @@ FROM openjdk:8
 # install wget and python
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive \
-    apt -y install wget python3-pip && \
+    apt -y install wget python3-pip vim && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
