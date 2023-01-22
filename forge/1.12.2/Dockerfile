@@ -12,7 +12,9 @@ RUN wget -O forge-installer.jar https://maven.minecraftforge.net/net/minecraftfo
 
 # run forge installer
 RUN java -jar forge-installer.jar --installServer
+RUN rm ./forge-installer.jar
+RUN mv forge-*.jar forge.jar
 
 # everything else should be set up. Set the startup command, then the entrypoint will take care of the j2 templates
-CMD exec /home/mcuser/bin/minecraft/run.sh
+CMD exec java -jar forge.jar
 ENTRYPOINT [ "/entrypoint.sh" ]
