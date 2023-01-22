@@ -1,4 +1,4 @@
-FROM bmelikant/j2cli:latest
+FROM bmelikant/j2cli-openjdk-21:latest
 
 # get into the minecraft directory
 WORKDIR /home/mcuser/bin/minecraft
